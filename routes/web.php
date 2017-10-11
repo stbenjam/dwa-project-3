@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WordController@index');
+Route::get('/calculate', 'WordController@calculate');
+
