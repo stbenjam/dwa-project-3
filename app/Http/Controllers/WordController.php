@@ -13,7 +13,7 @@ class WordController extends Controller
 	 * GET /
 	 */
 	public function index() {
-		return "Here is the index page";
+		return view('word.index');
 	}
 
 
@@ -22,7 +22,7 @@ class WordController extends Controller
 	 *
 	 * GET /calculate
 	 */
-	public function calculate() {
-		return "Here is where I'll calculate the word score.";
+    public function calculate() {
+        return view('word.index');
 	}
 }
