@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 class WordController extends Controller
 {
 
-	/**
-	 * Index page for the word score calculator.
-	 *
-	 * GET /
-	 */
+    /**
+     * Index page for the word score calculator.
+     *
+     * GET /
+     */
     public function index(Request $request) {
-		return view('word.index');
+        return view('word.index');
     }
 
     public function calculate(Request $request) {
