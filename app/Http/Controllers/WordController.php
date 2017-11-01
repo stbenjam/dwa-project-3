@@ -27,7 +27,6 @@ class WordController extends Controller
         $this->validate($request, [
             'multiplier'    => "required|numeric",
             'word'          => "required|min:2|alpha".$valid_word,
-            'valid_word'    => "Your word is not valid in the scrabble dictionary.",
         ]);
 
         /* Generate score */

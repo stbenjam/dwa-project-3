@@ -9,9 +9,9 @@
         </div>
     @endforeach
 @elseif(isset($score))
-<div class="alert alert-success" role="alert">
-    Your word has a score of <?= $score ?>.
-</div>
+    <div class="alert alert-success" role="alert">
+        Your word has a score of <?= $score ?>.
+    </div>
 @endif
 
 <hr />
