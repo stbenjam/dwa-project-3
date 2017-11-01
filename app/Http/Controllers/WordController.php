@@ -18,7 +18,10 @@ class WordController extends Controller
 
     public function calculate(Request $request) {
 
-        /* Validations: */
+        /**
+         * Validations:
+         *  - We only validate word in dictionary if user requested it
+         */
         $valid_word = $request->has('dictVerify') ? "|valid_word" : "";
 
         $this->validate($request, [
@@ -29,13 +32,17 @@ class WordController extends Controller
 
         /* Generate score */
         $scrabbleWord = new \App\MyClasses\ScrabbleWord($request->input('word'));
+        $multInteger  = intval($request->input('multiplier'));
+        $bingoBool    = $request->has('bingoPoints');
+        $score        = $scrabbleWord->score($multInteger, $bingoBool);
 
+        /* Render the result */
         return view('word.index')->with([
             'word'          => $request->input('word'),
             'multiplier'    => $request->input('multiplier'),
             'verifyDict'    => $request->input('verifyDict'),
             'bingoPoints'   => $request->input('bingoPoints'),
-            'score'         => $scrabbleWord->score(1, false),
+            'score'         => $score,
         ]);
     }
 }
