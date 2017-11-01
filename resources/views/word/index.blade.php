@@ -3,13 +3,11 @@
 @section('content')
 
 @if(count($errors) > 0)
-<ul>
-@foreach ($errors->all() as $error)
+    @foreach ($errors->all() as $error)
         <div class="alert alert-danger" role="alert">
             {{ $error }}
         </div>
     @endforeach
-</ul>
 @endif
 
 
@@ -18,6 +16,8 @@
     Your word has a score of <?= $score ?>.
 </div>
 @endif
+
+<hr />
 
 <div class="page-header">
     <form action="./calculate" method="GET">
@@ -85,4 +85,5 @@
         </div>
     </form>
 </div>
+<hr />
 @endsection

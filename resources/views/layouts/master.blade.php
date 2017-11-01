@@ -18,11 +18,8 @@
                 </h1>
             </div>
 
-            <hr />
+            @yield('content')
 
-            <div class="page-header">
-                @yield('content')
-            <hr />
         </div>
     </body>
 </html>
