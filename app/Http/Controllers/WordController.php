@@ -40,7 +40,7 @@ class WordController extends Controller
         return view('word.index')->with([
             'word'          => $request->input('word'),
             'multiplier'    => $request->input('multiplier'),
-            'verifyDict'    => $request->input('verifyDict'),
+            'dictVerify'    => $request->input('dictVerify'),
             'bingoPoints'   => $request->input('bingoPoints'),
             'score'         => $score,
         ]);
