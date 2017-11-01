@@ -3,6 +3,12 @@
 return [
 
     /*
+     * Scrabble API Key:
+     *  API key to be used when validating the word
+     */
+    'scrabble_api_key' => env('SCRABBLE_API_KEY', 'unset'),
+
+    /*
     |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------

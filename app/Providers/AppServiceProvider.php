@@ -16,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Validator::extend('valid_word', function($field, $value, $parameters) {
-            return false;
+            $api = new \App\MyClasses\DictionaryAPI(config('app.scrabble_api_key'));
+            return $api->isValidWord($value);
         });
     }
 
