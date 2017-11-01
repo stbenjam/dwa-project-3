@@ -12,17 +12,13 @@ class WordController extends Controller
 	 *
 	 * GET /
 	 */
-	public function index() {
+    public function index(Request $request) {
 		return view('word.index');
-	}
+    }
 
-
-	/**
-	 * Calculate the score for a scrabble word.
-	 *
-	 * GET /calculate
-	 */
-    public function calculate() {
-        return view('word.index');
-	}
+    public function calculate(Request $request) {
+        $this->validate($request, [
+            'word' => 'required|min:2|alpha_num'
+        ]);
+    }
 }
