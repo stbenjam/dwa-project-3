@@ -17,8 +17,25 @@ class WordController extends Controller
     }
 
     public function calculate(Request $request) {
+
+        /* Validations: */
+        $valid_word = $request->has('dictVerify') ? "|valid_word" : "";
+
         $this->validate($request, [
-            'word' => 'required|min:2|alpha_num'
+            'multiplier'    => "required|numeric",
+            'word'          => "required|min:2|alpha".$valid_word,
+            'valid_word'    => "Your word is not valid in the scrabble dictionary.",
+        ]);
+
+        /* Generate score */
+        $scrabbleWord = new \App\MyClasses\ScrabbleWord($request->input('word'));
+
+        return view('word.index')->with([
+            'word'          => $request->input('word'),
+            'multiplier'    => $request->input('multiplier'),
+            'verifyDict'    => $request->input('verifyDict'),
+            'bingoPoints'   => $request->input('bingoPoints'),
+            'score'         => $scrabbleWord->score(1, false),
         ]);
     }
 }

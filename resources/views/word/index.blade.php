@@ -8,10 +8,7 @@
             {{ $error }}
         </div>
     @endforeach
-@endif
-
-
-@if(isset($score))
+@elseif(isset($score))
 <div class="alert alert-success" role="alert">
     Your word has a score of <?= $score ?>.
 </div>
